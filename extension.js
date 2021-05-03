@@ -15,7 +15,7 @@ function activate(context) {
           'extension.js-debug.requestCDPProxy',
           session.id,
         );
-        const formed = `ws://${addr.host}:${addr.port}`;
+        const formed = `ws://${addr.host}:${addr.port}${addr.path || ''}`;
         vscode.env.clipboard.writeText(formed);
         vscode.window.showInformationMessage(`Address copied to your clipboard (${formed})`);
       } catch (e) {
